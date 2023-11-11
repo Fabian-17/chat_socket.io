@@ -19,7 +19,7 @@ git clone https://github.com/Fabian-17/chat_socket.io.git
 
 Abre una terminal y ejecuta el siguiente comando:
 ```bash
-cd socket.io
+cd chat_socket.io
 ```
 
 ### Paso 3: Instalar Dependencias

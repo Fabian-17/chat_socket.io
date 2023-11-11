@@ -2,6 +2,10 @@
 <html>
 
 <head>
+  <meta lang="es">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Socket.IO chat</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
@@ -12,22 +16,24 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-body">
-            <ul id="messages" class="list-unstyled"></ul>
-            <div id="typing-indicator"></div>
-            <form id="form" class="form-inline mt-3">
-              <input id="username" class="form-control mr-2" placeholder="Nombre de usuario" required
-                autocomplete="off">
-              <input id="message" class="form-control mr-2" placeholder="Escriba un mensaje..." autocomplete="off">
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+          <div>
+            <h3 class="text-center">Socket.IO chat</h3>
+            <div class="card-body">
+              <ul id="messages" class="list-unstyled"></ul>
+              <div id="typing-indicator"></div>
+              <form id="form" class="form-inline mt-3">
+                <input id="username" class="form-control mr-2" placeholder="Nombre de usuario" required
+                  autocomplete="off">
+                <input id="message" class="form-control mr-2" placeholder="Escriba un mensaje..." autocomplete="off">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="js/socket.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/socket.js"></script>
 </body>
 
 </html>

@@ -3,13 +3,14 @@ let messages = document.getElementById('messages');
 let form = document.getElementById('form');
 let inputMessage = document.getElementById('message');
 let inputUsername = document.getElementById('username');
-let messageHistory = JSON.parse(localStorage.getItem('messageHistory')) || [];
 
-// Mostrar mensajes almacenados al cargar la página
-messageHistory.forEach(function (msg) {
-  let item = document.createElement('li');
-  item.textContent = msg;
-  messages.appendChild(item);
+// Mostrar mensajes almacenados 
+socket.on('message history', function (history) {
+  history.forEach(function (msg) {
+    let item = document.createElement('li');
+    item.textContent = msg.username + ': ' + msg.message;
+    messages.appendChild(item);
+  });
 });
 
 form.addEventListener('submit', function (e) {
@@ -31,9 +32,6 @@ socket.on('chat message', function (data) {
   item.textContent = `${data.username}: ${data.message}`;
   messages.appendChild(item);
 
-  // Almacena los mensajes
-  messageHistory.push(`${data.username}: ${data.message}`);
-  localStorage.setItem('messageHistory', JSON.stringify(messageHistory));
 
   window.scrollTo(0, document.body.scrollHeight);
 });

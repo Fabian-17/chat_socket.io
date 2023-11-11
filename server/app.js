@@ -20,9 +20,15 @@ app.get('/', (_req, res) => {
 });
 
 
+const messageHistory = [];
+
 io.on('connection', (socket) => {
     console.log('user connected');
+
+    socket.emit('message history', messageHistory);
+
     socket.on('chat message', (msg) => {
+        messageHistory.push(msg);
         io.emit('chat message', msg);
     });
     socket.on('disconnect', () => {
